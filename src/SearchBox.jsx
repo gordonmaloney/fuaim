@@ -15,7 +15,7 @@ export const SearchBox = () => {
       <Autocomplete
         disablePortal
         id="combo-box-demo"
-        options={WORDS}
+        options={WORDS.map(word => word.word)}
         sx={{ width: "100%"}}
         renderInput={(params) => <TextField {...params} label="Search..." />}
         onChange={(event, newValue) => {

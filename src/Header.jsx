@@ -58,7 +58,7 @@ export const Header = () => {
             <a href="https://learngaelic.net/dictionary/" target="_blank">
               Learn Gaelic dictionary
             </a>
-            .
+            . The IPA is pulled from Wiktionary - blame them if it's wrong!
             <br />
             <br />
             Made by the same volunteer as{" "}
