@@ -1,25 +1,26 @@
-import logo from './logo.svg';
-import './App.css';
-
-function App() {
+import React from "react";
+import Search from "./Search";
+import { BrowserRouter } from "react-router-dom";
+import { Routes, Route, Outlet, Link } from "react-router-dom";
+import { Player } from "./Word/Player";
+import { Header } from "./Header";
+import Waveform from "./Word/Waveform";
+import { Footer } from "./Footer";
+const App = () => {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+      <Header />
+      <div className="container">
+        <BrowserRouter>
+          <Routes>
+            <Route path="/" exact element={<Search />} />
+            <Route path="/word/:word" element={<Player />} />
+          </Routes>
+        </BrowserRouter>
+      </div>
+      <Footer />
+    </>
   );
-}
+};
 
 export default App;
