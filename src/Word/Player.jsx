@@ -112,10 +112,30 @@ export const Player = () => {
   } catch {
     return (
       <>
-        <center>
-          <h2>{word}</h2>
+        <center style={{ margin: "0 0 10px 0" }}>
+          <h2 style={{ margin: "0 0 5px 0" }}>{word}</h2>
+          <p style={{margin: 0, fontSize: 14}}>
+            <a
+              href="https://en.wiktionary.org/wiki/Appendix:Scottish_Gaelic_pronunciation"
+              target="_blank"
+            >
+              IPA
+            </a>:{" "}
+            {WORDS.filter((filterWord) => filterWord.word == word)[0].ipa}
+          </p>
         </center>
         <em>No audio file for this word yet</em>
+        <Recorder />
+
+        <br/>
+        <br/>
+        <Button
+          onClick={() => navigate("../")}
+          variant="contained"
+          size="small"
+        >
+          Back
+        </Button>
       </>
     );
   }

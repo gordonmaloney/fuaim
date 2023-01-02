@@ -44,7 +44,7 @@ export const Header = () => {
           <Typography id="modal-modal-title" variant="h6" component="h2">
             <b>What is this all about?</b>
           </Typography>
-          <Typography id="modal-modal-description" sx={{ mt: 2 }}>
+          <Typography id="modal-modal-description" sx={{ mt: 2, lineHeight: "1.4" }}>
             Fuaim is a (very) simply wee program to improve your Gaelic
             pronunciation.
             <br />
@@ -58,7 +58,7 @@ export const Header = () => {
             <a href="https://learngaelic.net/dictionary/" target="_blank">
               Learn Gaelic dictionary
             </a>
-            . The IPA is pulled from Wiktionary - blame them if it's wrong!
+            . The IPA is pulled from Wiktionary and <a href="https://www.faclair.info" target="_blank">Faclair</a> - blame them if it's wrong!
             <br />
             <br />
             Made by the same volunteer as{" "}

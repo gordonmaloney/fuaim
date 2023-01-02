@@ -10,7 +10,7 @@ body {
 
 .backgroundImg {
   height: 100vh;
-  background-image: url('./bg.jpg');
+  background-image: url('./bg-new.png');
   background-size: cover;
   background-repeat: no-repeat;
 }
@@ -32,7 +32,7 @@ height: 90vh;
   margin-right: auto;
   padding: 20px;
   border-radius: 10px;
-background: rgba(255, 255, 255, 0.59);
+background: rgba(255, 255, 255, 0.40);
 border-radius: 16px;
 box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
 backdrop-filter: blur(7.4px);
