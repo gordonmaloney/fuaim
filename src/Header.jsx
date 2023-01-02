@@ -3,6 +3,7 @@ import { Button, Grid } from "@mui/material";
 import Box from "@mui/material/Box";
 import Typography from "@mui/material/Typography";
 import Modal from "@mui/material/Modal";
+import { BtnStyle } from "./BtnStyle";
 
 const style = {
   position: "absolute",
@@ -31,7 +32,8 @@ export const Header = () => {
         </a>
       </div>
       <div style={{ float: "right" }}>
-        <Button onClick={handleOpen}>What???</Button>
+        <Button           sx={{...BtnStyle}}
+onClick={handleOpen}>What???</Button>
       </div>
 
       <Modal
@@ -82,6 +84,7 @@ export const Header = () => {
                 size="small"
                 href="https://ko-fi.com/gordonmaloney"
                 target="_blank"
+                sx={BtnStyle}
               >
                 Support Fuaim
               </Button>

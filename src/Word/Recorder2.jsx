@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import MicRecorder from "mic-recorder-to-mp3";
-
+import { BtnStyle } from "../BtnStyle";
 import { useEffect } from "react";
 import Waveform from "./Waveform";
 import { Button } from "@mui/material";
@@ -68,6 +68,8 @@ export const Recorder = () => {
             variant="contained"
             onClick={() => start()}
             disabled={state.isRecording}
+            sx={{...BtnStyle}}
+
           >
             Record
           </Button>
@@ -79,6 +81,8 @@ export const Recorder = () => {
           size="small"
           onClick={() => start()}
           disabled={state.isRecording}
+          sx={{...BtnStyle}}
+
         >
           Re-record
         </Button>

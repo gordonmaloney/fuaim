@@ -10,6 +10,8 @@ import Typography from "@mui/material/Typography";
 import Modal from "@mui/material/Modal";
 import { WORDS } from "../WORDS";
 
+import { BtnStyle } from "../BtnStyle";
+
 const style = {
   position: "absolute",
   top: "50%",
@@ -42,14 +44,14 @@ export const Player = () => {
       <>
         <center style={{ margin: "0 0 10px 0" }}>
           <h2 style={{ margin: "0 0 5px 0" }}>{word}</h2>
-          <p style={{margin: 0, fontSize: 14}}>
+          <p style={{ margin: 0, fontSize: 14 }}>
             <a
               href="https://en.wiktionary.org/wiki/Appendix:Scottish_Gaelic_pronunciation"
               target="_blank"
             >
               IPA
-            </a>:{" "}
-            {WORDS.filter((filterWord) => filterWord.word == word)[0].ipa}
+            </a>
+            : {WORDS.filter((filterWord) => filterWord.word == word)[0].ipa}
           </p>
         </center>
 
@@ -60,7 +62,12 @@ export const Player = () => {
             onClick={() => setOpen(true)}
             variant="contained"
             size="small"
-            sx={{ padding: "1px 4px", margin: "5px 0 0 0", fontSize: 10 }}
+            sx={{
+              padding: "1px 4px",
+              margin: "5px 0 0 0",
+              fontSize: 10,
+              ...BtnStyle,
+            }}
           >
             Something odd?
           </Button>
@@ -72,8 +79,9 @@ export const Player = () => {
           onClick={() => navigate("../")}
           variant="contained"
           size="small"
+          sx={{ ...BtnStyle }}
         >
-          Back
+          Try another word
         </Button>
 
         <Modal
@@ -114,27 +122,28 @@ export const Player = () => {
       <>
         <center style={{ margin: "0 0 10px 0" }}>
           <h2 style={{ margin: "0 0 5px 0" }}>{word}</h2>
-          <p style={{margin: 0, fontSize: 14}}>
+          <p style={{ margin: 0, fontSize: 14 }}>
             <a
               href="https://en.wiktionary.org/wiki/Appendix:Scottish_Gaelic_pronunciation"
               target="_blank"
             >
               IPA
-            </a>:{" "}
-            {WORDS.filter((filterWord) => filterWord.word == word)[0].ipa}
+            </a>
+            : {WORDS.filter((filterWord) => filterWord.word == word)[0].ipa}
           </p>
         </center>
         <em>No audio file for this word yet</em>
         <Recorder />
 
-        <br/>
-        <br/>
+        <br />
+        <br />
         <Button
           onClick={() => navigate("../")}
           variant="contained"
           size="small"
+          sx={{ ...BtnStyle }}
         >
-          Back
+          Try another word
         </Button>
       </>
     );

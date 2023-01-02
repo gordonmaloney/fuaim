@@ -4,6 +4,8 @@ import WaveSurfer from "wavesurfer.js";
 import styled from "styled-components";
 import { FaPlayCircle, FaPauseCircle } from "react-icons/fa";
 import { Button } from "@mui/material";
+import { BtnStyle } from "../BtnStyle";
+
 
 const Waveform = ({ audio }) => {
   const containerRef = useRef();
@@ -49,7 +51,7 @@ const Waveform = ({ audio }) => {
       </div>
       <center>
         <Button
-          sx={{ marginTop: "5px" }}
+          sx={{ marginTop: "5px", ...BtnStyle }}
           size="small"
           variant="contained"
           onClick={() => {
