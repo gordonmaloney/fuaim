@@ -1,5 +1,5 @@
 export const BtnStyle = {
-  fontFamily: "Roboto",
+  fontFamily: "Roboto, Arial",
   borderRadius: '10px 5px 10px 5px',
   color: "white",
   backgroundColor: "#ba8b59",

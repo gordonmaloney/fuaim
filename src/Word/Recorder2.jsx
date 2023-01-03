@@ -35,8 +35,9 @@ export const Recorder = () => {
       .catch((e) => console.log(e));
   };
 
+  console.log(navigator)
   useEffect(() => {
-    navigator.getUserMedia(
+    navigator.mediaDevices.getUserMedia(
       { audio: true },
       () => {
         console.log("Permission Granted");
@@ -52,7 +53,6 @@ export const Recorder = () => {
   return (
     <>
       <h3>Record your own version:</h3>
-
       <center>
         {state.isRecording ? (
           <Button
@@ -67,12 +67,13 @@ export const Recorder = () => {
           <Button
             variant="contained"
             onClick={() => start()}
-            disabled={state.isRecording}
+            disabled={state.isRecording || state.isBlocked}
             sx={{...BtnStyle}}
 
           >
             Record
           </Button>
+          
         )
       :
       (
@@ -88,6 +89,8 @@ export const Recorder = () => {
         </Button>
       )
       }
+            {state.isBlocked && <><br/>You must <a href="https://www.google.com/search?q=how+to+enable+access+to+microphone+from+browser&rlz=1C5CHFA_enGB1004GB1004&oq=how+to+enable+access+to+microphone+from+browser&aqs=chrome..69i64j0i22i30l2j0i390l2j69i57.1950j0j4&sourceid=chrome&ie=UTF-8" target="_blank">enable access to your microphone</a> in order to record your own version.</>}
+
       </center>
 
       <br />

@@ -37,105 +37,132 @@ export const Player = () => {
 
   const word = params.word;
 
-  try {
-    let src = require(`./Audio/${word}.mp3`);
-
-    return (
-      <>
-        <center style={{ margin: "0 0 10px 0" }}>
-          <h2 style={{ margin: "0 0 5px 0" }}>{word}</h2>
-          <p style={{ margin: 0, fontSize: 14 }}>
-            <a
-              href="https://en.wiktionary.org/wiki/Appendix:Scottish_Gaelic_pronunciation"
-              target="_blank"
-            >
-              IPA
-            </a>
-            : {WORDS.filter((filterWord) => filterWord.word == word)[0].ipa}
-          </p>
-        </center>
-
-        <Waveform audio={src} />
-
-        <center>
-          <Button
-            onClick={() => setOpen(true)}
-            variant="contained"
-            size="small"
-            sx={{
-              padding: "1px 4px",
-              margin: "5px 0 0 0",
-              fontSize: 10,
-              ...BtnStyle,
-            }}
-          >
-            Something odd?
-          </Button>
-        </center>
-        <Recorder />
-
-        <br />
-        <Button
-          onClick={() => navigate("../")}
-          variant="contained"
-          size="small"
-          sx={{ ...BtnStyle }}
-        >
-          Try another word
-        </Button>
-
-        <Modal
-          open={open}
-          onClose={handleClose}
-          aria-labelledby="modal-modal-title"
-          aria-describedby="modal-modal-description"
-        >
-          <Box sx={style}>
-            <Typography id="modal-modal-title" variant="h6" component="h2">
-              Something odd?
-            </Typography>
-            <Typography id="modal-modal-description" sx={{ mt: 2 }}>
-              Audio files are automatically pulled from the fantastic{" "}
-              <a href="https://learngaelic.net/dictionary/" target="_blank">
-                Learn Gaelic dictionary
-              </a>
-              , but sometimes the words are only on there in phrases, not just
-              on their own.
-              <br />
-              <br />
-              If you spot one that sounds odd, you can{" "}
+  if (WORDS.filter((filter) => filter.word == word).length > 0) {
+    try {
+      let src = require(`./Audio/${word}.mp3`);
+      return (
+        <>
+          <center style={{ margin: "0 0 10px 0" }}>
+            <h2 style={{ margin: "0 0 5px 0" }}>{word}</h2>
+            <p style={{ margin: 0, fontSize: 14 }}>
               <a
-                href="mailto:gordonmalomney@gmail.com?subject=Fuaim - something odd"
+                href="https://en.wiktionary.org/wiki/Appendix:Scottish_Gaelic_pronunciation"
                 target="_blank"
               >
-                let me know
+                IPA
               </a>
-              , but as a volunteer with a busy life, I'm afraid I can't promise
-              to fix everything as quickly as I'd like. Duilich!
-            </Typography>
-          </Box>
-        </Modal>
-      </>
-    );
-  } catch {
+              : {WORDS.filter((filterWord) => filterWord.word == word)[0].ipa}
+            </p>
+          </center>
+
+          <Waveform audio={src} />
+
+          <center>
+            <Button
+              onClick={() => setOpen(true)}
+              variant="contained"
+              size="small"
+              sx={{
+                padding: "1px 4px",
+                margin: "5px 0 0 0",
+                fontSize: 10,
+                ...BtnStyle,
+              }}
+            >
+              Something odd?
+            </Button>
+          </center>
+          <Recorder />
+
+          <br />
+          <Button
+            onClick={() => navigate("../")}
+            variant="contained"
+            size="small"
+            sx={{ ...BtnStyle }}
+          >
+            Try another word
+          </Button>
+
+          <Modal
+            open={open}
+            onClose={handleClose}
+            aria-labelledby="modal-modal-title"
+            aria-describedby="modal-modal-description"
+          >
+            <Box sx={style}>
+              <Typography id="modal-modal-title" variant="h6" component="h2">
+                Something odd?
+              </Typography>
+              <Typography id="modal-modal-description" sx={{ mt: 2 }}>
+                Audio files are automatically pulled from the fantastic{" "}
+                <a href="https://learngaelic.net/dictionary/" target="_blank">
+                  Learn Gaelic dictionary
+                </a>
+                , but sometimes the words are only on there in phrases, not just
+                on their own.
+                <br />
+                <br />
+                If you spot one that sounds odd, you can{" "}
+                <a
+                  href="mailto:gordonmalomney@gmail.com?subject=Fuaim - something odd"
+                  target="_blank"
+                >
+                  let me know
+                </a>
+                , but as a volunteer with a busy life, I'm afraid I can't
+                promise to fix everything as quickly as I'd like. Duilich!
+              </Typography>
+            </Box>
+          </Modal>
+        </>
+      );
+    } catch {
+      return (
+        <>
+          <center style={{ margin: "0 0 10px 0" }}>
+            <h2 style={{ margin: "0 0 5px 0" }}>{word}</h2>
+            <p style={{ margin: 0, fontSize: 14 }}>
+              <a
+                href="https://en.wiktionary.org/wiki/Appendix:Scottish_Gaelic_pronunciation"
+                target="_blank"
+              >
+                IPA
+              </a>
+              : {WORDS.filter((filterWord) => filterWord.word == word)[0].ipa}
+            </p>
+          </center>
+          <em>No audio file for this word yet</em>
+          <Recorder />
+
+          <br />
+          <br />
+          <Button
+            onClick={() => navigate("../")}
+            variant="contained"
+            size="small"
+            sx={{ ...BtnStyle }}
+          >
+            Try another word
+          </Button>
+        </>
+      );
+    }
+  } else {
     return (
       <>
-        <center style={{ margin: "0 0 10px 0" }}>
-          <h2 style={{ margin: "0 0 5px 0" }}>{word}</h2>
-          <p style={{ margin: 0, fontSize: 14 }}>
-            <a
-              href="https://en.wiktionary.org/wiki/Appendix:Scottish_Gaelic_pronunciation"
-              target="_blank"
-            >
-              IPA
-            </a>
-            : {WORDS.filter((filterWord) => filterWord.word == word)[0].ipa}
-          </p>
-        </center>
-        <em>No audio file for this word yet</em>
-        <Recorder />
-
+      <h3>Òbh òbh!</h3>
+        It looks like we don't have that word yet - sorry!
         <br />
+        <br />
+        If you think that's a mistake, please{" "}
+        <a
+          href="mailto:gordonmalomney@gmail.com?subject=Fuaim - something odd"
+          target="_blank"
+        >
+          let me know
+        </a>
+        . <br />
         <br />
         <Button
           onClick={() => navigate("../")}
